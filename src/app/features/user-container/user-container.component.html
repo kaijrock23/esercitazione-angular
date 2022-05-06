@@ -1,0 +1,14 @@
+<h1>Users</h1>
+<div class="mb-5">
+    <app-user-tab-bar [actualView]="isCardView">
+        (toggleCardView)="toggleCardView($event)"
+    </app-user-tab-bar>
+</div>
+<div class="d-flex" *ngIf="isCardView">
+    <ng-container *ngIf="users.length; else noUsers">
+        <app-user-card-view *ngFor="let user of users" [user]="user" (deleteuser)="deleteuser($event)">
+        </app-user-card-view>
+    </ng-container>
+    <ng-template #noUsers>Sono morti tutti</ng-template>
+</div>
+<app-list-view *ngIf="!isCardView" [users]="users"></app-list-view>
