@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IUser } from 'src/app/models/user.model';
 import { ILocation } from 'src/app/models/user.model';
 import { IOrder } from 'src/app/models/user.model';
@@ -9,6 +9,7 @@ import { IOrder } from 'src/app/models/user.model';
 })
 export class ListViewComponent implements OnInit {
   @Input() users!: IUser[];
+  @Output() deleteuser = new EventEmitter<string>()
   constructor() { }
 
   ngOnInit(): void {

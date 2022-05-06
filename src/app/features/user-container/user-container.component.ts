@@ -8,15 +8,15 @@ import { USERS } from 'src/app/models/mock.data';
   styleUrls: ['./user-container.component.css']
 })
 export class UserContainerComponent implements OnInit {
-  isCardView = true
+  isCardView: boolean = true
   users: IUser[] = USERS;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  toggleCardView(value: boolean) {
-    if (value === true) {
+  toggleCardView(value: string) {
+    if (value === 'isCardView') {
       this.isCardView = true;
     } else {
       this.isCardView = false;
